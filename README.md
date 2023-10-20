@@ -1,7 +1,18 @@
 # SIGNATE 民泊サービスの宿泊価格予測
 
-[【練習問題】民泊サービスの宿泊価格予測](https://signate.jp/competitions/266#disclosure-policy)
+[【練習問題】民泊サービスの宿泊価格予測](https://signate.jp/competitions/266)
 
 ## 解法1 ResNetもどきによる予測モデルの構築
+
 Residual Blockを活用した予測モデルを構築\
 重回帰によるbenchmarkより精度が悪化したためニューラルネットワークとテーブルデータの相性が如実に表れた感覚……
+
+TensorFlowでResNetもどきを組んで予測
+5-foldで学習し、できた5つのモデルの平均値を回答
+dev性能はそこまで高くなかったが……？
+→ 179.4188385 ベンチマークより悪化
+
+## 解法2 XGBoostによる予測モデルの構築
+
+XGBoostを試してみた回
+→ 154.6158312 自分の履歴の中では結構いい改善
